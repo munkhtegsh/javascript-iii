@@ -37,8 +37,18 @@ var employees = [{
 //  3. Return the updated employee array.
 
 // Code here
+var employeeUpdater = () => {
+  employees.forEach((e, i) => {
+    if(e.firstName === 'Theo') {
+      employees.splice(i, 1);
+    }
 
-
+    if(e.firstName === 'Lorie') {
+      e.department = 'HR';
+    }
+  });
+  return employees;
+};
 
 
 
