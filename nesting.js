@@ -111,7 +111,9 @@ var fluffy2ndFriend = cat.catFriends[1].name;
 
 // === PROBLEM 4 ==========
 
-// Below is some information about my car. As you can see, I am not the best driver. I have caused a few accidents. Please update this driving record so that I can feel better about my driving skills.
+// Below is some information about my car. As you can see, I am not the best driver. 
+//I have caused a few accidents. Please update this driving record so that I can feel better 
+//about my driving skills.
 
 // 1. Write a function called recordCleaner.
 // 2. Loop over the accidents array.
@@ -139,6 +141,25 @@ var myCar = {
 }
 
 // Code here
+var recordCleaner = (obj) => {
+  // console.log(obj.accidents);
+  // obj.accidents.forEach((e) => {
+  //   if (e.atFaultForAccident === true) {
+  //     e.atFaultForAccident = false;
+  //   }
+  // });
+  // return obj;
+  var arr = obj.accidents;
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i].atFaultForAccident === true) {
+      arr[i].atFaultForAccident = false;
+    }
+  }
+
+  return obj;
+};
+
+console.log(recordCleaner(myCar))
 
 
 
@@ -159,6 +180,19 @@ var myCar = {
 
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
+var looper = (arr) => {
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] % 2 === 0) {
+        arr[i][j] = 'even';
+      } else {
+        arr[i][j] = 'odd';
+      }
+    }
+  }
+  return arr;
+}
 
+console.log(looper(numsArr));
 
 
