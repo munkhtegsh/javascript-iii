@@ -2,7 +2,8 @@
 // DESTRUCTURING
 // ========================
 
-// Use object destructuring to save the property values from the object carDetails into new variables. 
+// Use object destructuring to save the property values 
+//from the object carDetails into new variables. 
 
 var carDetails = {
   color: 'red',
@@ -12,15 +13,24 @@ var carDetails = {
 }
 
 // CODE HERE
-
+var color = carDetails.color;
+var make = carDetails.make;
+var model = carDetails.model;
+var year = carDetails.year;
 
 // ========================
 
 
-// In the function below named greeting, it is receiving an object as a parameter. Use object destructuring to save the object properties to new variables. The property names are firstName, lastName, and title. Return the concatenated string.
+// In the function below named greeting, it is receiving an object as a 
+//parameter. Use object destructuring to save the object properties to new 
+//variables. The property names are firstName, lastName, and title. 
+//Return the concatenated string.
 
 function greeting( obj ) {
   // CODE HERE
+  var title = obj.title;
+  var firstName = obj.firstName;
+  var lastName = obj.lastName;
   
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
 }
@@ -29,9 +39,26 @@ function greeting( obj ) {
 // ========================
 
 
-// Write a function called totalPopulation that will take in an object. That object will have 4 properties named utah, california, texas and arizona. The property values will be numbers. Use object destructuring to save the property values to new variables. Sum up the values and return the total number.
+// Write a function called totalPopulation that will take in an object. 
+//That object will have 4 properties named utah, california, 
+//texas and arizona. The property values will be numbers. 
+//Use object destructuring to save the property values to new variables. 
+//Sum up the values and return the total number.
 
   // CODE HERE
+  var obj = {
+    utah : 1,
+    california : 2,
+    texas : 3,
+    arizona : 4
+  }
+  
+  var totalPopulation = (obj) => {
+
+
+
+    return obj.utah + obj.california + obj.texas + obj.arizona;
+  }
 
 
 // ========================
