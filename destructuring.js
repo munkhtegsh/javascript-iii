@@ -26,12 +26,12 @@ var year = carDetails.year;
 //variables. The property names are firstName, lastName, and title. 
 //Return the concatenated string.
 
-function greeting( obj ) {
+function greeting(obj) {
   // CODE HERE
   var title = obj.title;
   var firstName = obj.firstName;
   var lastName = obj.lastName;
-  
+
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
 }
 
@@ -45,47 +45,99 @@ function greeting( obj ) {
 //Use object destructuring to save the property values to new variables. 
 //Sum up the values and return the total number.
 
-  // CODE HERE
-  var obj = {
-    utah : 1,
-    california : 2,
-    texas : 3,
-    arizona : 4
-  }
-  
-  var totalPopulation = (obj) => {
+// CODE HERE
+var obj = {
+  utah: 1,
+  california: 2,
+  texas: 3,
+  arizona: 4
+};
 
-
-
-    return obj.utah + obj.california + obj.texas + obj.arizona;
-  }
+var totalPopulation = (obj) => {
+  return obj.utah + obj.california + obj.texas + obj.arizona;
+};
 
 
 // ========================
 
 
-// Write a function called ingredients that will take in an object. This object will have 3 properties named carb, fat, and protein. The property values will be strings. Use object destructuring to save the property values to new variables. Push these new variables to an array and return the array. 
+// Write a function called ingredients that will take in an object. 
+//This object will have 3 properties named carb, fat, and protein. 
+//The property values will be strings. Use object destructuring to save 
+//the property values to new variables. Push these new variables to an array 
+//and return the array. 
 
-  // CODE HERE
+// CODE HERE
+obj = {
+  carb : 'butter',
+  fat : 'eggs',
+  protein : 'flour'
+};
 
+var ingredients = (obj) => {
+  var arr = [];
+  arr.push(obj.carb, obj.fat, obj.protein);
+  return arr;
+}
 
 // ========================
 
 
-// Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration. See the example below:
+// Now we will use object destructuring as the function's parameter 
+//instead of destructuring the object inside of the function declaration. 
+//See the example below:
 
 // function example( {one, two, three} ) {
 //   return one + two + three
 // }
 
-// Write a function called largeNumbers that will take a destructured object as it's parameter. The object properties will be named first, second, and third and their values will be numbers. Find the smallest number of the three and return that number.
+// Write a function called largeNumbers that will take a destructured 
+//object as it's parameter. The object properties will be named first, 
+//second, and third and their values will be numbers. Find the smallest 
+//number of the three and return that number.
 
-  // CODE HERE
+// CODE HERE
+var obj = {
+  first : 1,
+  second : 2,
+  third : 3
+};
+
+var largeNumbers = (obj) => {
+  var smallest = obj.first;
+  for (var key in obj) {
+    if (obj[key] < smallest) {
+      smallest = obj[key];
+    }
+  }
+  return smallest;
+}
+
+
 
 
 // ========================
 
 
-// Write a function called numberGroups that will take a destructured object as it's parameter. The object properties will be named a, b, and c and their values will be arrays of numbers. Find the longest array and return that array. 
+// Write a function called numberGroups that will take a 
+//destructured object as it's parameter. The object properties will be named
+// a, b, and c and their values will be arrays of numbers. Find the longest 
+//array and return that array. 
 
-  // CODE HERE
+// CODE HERE
+var obj = {
+  a : [1,2],
+  b : [4,5,6],
+  c : [7,8,9,10]
+}
+var numberGroups = (obj) => {
+  var longest = obj.a;
+  for (var key in obj) {
+    if (longest.length < obj[key].length) {
+      longest = obj[key];
+    }
+  }
+
+  return longest;
+
+}
