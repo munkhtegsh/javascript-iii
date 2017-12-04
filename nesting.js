@@ -70,16 +70,8 @@ var removeDuplicates = (arr) => {
   return arr.filter((e, i, self) => {
     return i === self.indexOf(e);
   });
-  
-  // for (var i = 0; i < arr.length; i++) {
-  //   if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
-  //     arr.splice(i, 1);
-  //   }
-  // }
-  // return arr;
 }
 
-console.log(removeDuplicates(workplaceAccidents));
 
 
 
@@ -108,8 +100,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
