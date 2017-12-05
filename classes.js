@@ -35,6 +35,11 @@ class Employee {
     }
 }
 
+var emp = new Employee('Jey', 'Lo', '@gay', 60);
+var emp1 = new Employee('Mi', 'go', '@gmail', 30);
+var emp2 = new Employee('Di', 'ro', '@gmail', 20);
+
+
 
 /*
 
@@ -54,18 +59,19 @@ call your class Manager
 */
 
 class Manager {
-    constructor(first_name, last_name, email, age, reports) {
+    constructor(first_name, last_name, email, age) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
         this.age = age;
         this.reports = [];
     }
+
     hire(employee) {
-        this.reports.push(employee);
+        return this.reports.push(employee);
     }
     fire(index) {
-        this.reports.splice(index, 1);
+        return this.reports.splice(index, 1);
     }
 }
 
@@ -74,13 +80,15 @@ class Manager {
 
 
 /*
-Manager for Widget Co. get promoted when they get more employees, and get a bonus when they fire employees.
+Manager for Widget Co. get promoted when they get more employees, and get a 
+//bonus when they fire employees.
 Progressive Managers have all the same properties as the manager, but
 they also have :
 - title - default 'Not a manager'
 - bonus - default 0
 
-When employees are added or removed we need to check and update their title.  Their titles are as follows:
+When employees are added or removed we need to check and update their title.  
+//Their titles are as follows:
 0 : Not a manager
 1-3 : Barely Manager
 4-10 : Mostly Manager
@@ -92,8 +100,38 @@ Everytime they fire an employee they get $100 added to their bonus.
 
 call your class ProgressiveManager
 */
+class ProgressiveManager{
+    constructor(first_name, last_name, email, age) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.age = age;
+        this.reports = [];
+        this.title = 'Not a manager';
+        this.bonus = 0;
+    }
 
+    hire(employee) {
+        this.reports.push(employee);
+        if(this.reports.length >= 1 && this.reports.length <= 3) {
+            return this.title = 'Barely Manager';
+        } else if (this.reports.length >= 4 && this.reports.length <= 10) {
+            return this.title = 'Mostly Manager';
+        } else if (this.reports.length >= 11 && this.reports.length <= 50) {
+            return this.title = 'Manager';
+        } else if (this.reports.length >= 51 && this.reports.length <= 100) {
+            return this.title = 'Manager Plus';
+        }else if (this.reports.length >= 101) {
+            return this.title = 'Bestest Manager';
+        }
+    }
 
+    fire(index) {
+        this.reports.splice(index, 1);
+        this.bonus += 100;
+    }
+}
+var prog = new ProgressiveManager('Munkh', 'tegsh', '@yahoo', 20, []);
 
 
 /*
@@ -109,12 +147,48 @@ It has :
 
 It can :
 - makeWidgets
-    : This function takes in a number and increases widgets_made_count by that amount
+    : This function takes in a number and increases widgets_made_count by that 
+    //amount
       It also increases wear_and_tear_count by 1 for every 50
 - fixMachine
     : This function sets needs_reboot to true
 - reboot
-    : This function returns a function that is called when the machine is done rebooting
+    : This function returns a function that is called when the machine is done 
+    rebooting
       It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 
 */
+
+class Machine {
+    constructor() {
+        this.widgets_made_count = 0;
+        this.wear_and_tear_count = 0;
+        this.needs_reboot = false;
+    }
+}
+
+//This function takes in a number and increases widgets_made_count by that amount
+//It also increases wear_and_tear_count by 1 for every 50
+Machine.prototype.makeWidgets = function(number) {
+    this.widgets_made_count += number;
+    var fifty = Math.floor(number / 50);
+    this.wear_and_tear_count += fifty;
+};
+
+//This function sets needs_reboot to true
+Machine.prototype.fixMachine = function() {
+    this.needs_reboot = true;
+};
+
+
+
+//This function returns a function that is called when the machine is done rebooting
+//It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
+Machine.prototype.reboot = function() {
+    return () => {
+        this.needs_reboot = false;
+        this.wear_and_tear_count -= 10;
+    };
+};
+
+var littleMachine = new Machine();
